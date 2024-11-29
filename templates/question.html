@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pergunta:</h1>
+        <p>{{ question['question'] }}</p>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            <input type="text" name="answer" placeholder="Sua resposta" required>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="game-area">
+            <img id="progress-gif" src="/static/gifs/stage1_1.gif" alt="Progresso">
+        </div>
+    </div>
+
+    <script>
+        const questionId = {{ question_id }};
+        const gifElement = document.getElementById('progress-gif');
+        const gifs = {
+            1: ["/static/gifs/stage1_1.gif", "/static/gifs/stage1_2.gif", "/static/gifs/stage1_3.gif", "/static/gifs/stage1_4.gif", "/static/gifs/stage1_5.gif", "/static/gifs/stage1_6.gif"],
+            2: ["/static/gifs/stage2_1.gif", "/static/gifs/stage2_2.gif", "/static/gifs/stage2_3.gif", "/static/gifs/stage2_4.gif", "/static/gifs/stage2_5.gif", "/static/gifs/stage2_6.gif", "/static/gifs/stage2_7.gif"],
+            3: ["/static/gifs/stage3_1.gif", "/static/gifs/stage3_2.gif", "/static/gifs/stage3_3.gif", "/static/gifs/stage3_4.gif", "/static/gifs/stage3_5.gif", "/static/gifs/stage3_6.gif", "/static/gifs/stage3_7.gif" , "/static/gifs/stage3_8.gif"]
+        };
+
+        function animateStage(stageId) {
+            if (gifs[stageId]) {
+                let index = 0;
+                const stageGifs = gifs[stageId];
+                const interval = setInterval(() => {
+                    gifElement.src = stageGifs[index];
+                    index++;
+                    if (index >= stageGifs.length) {
+                        clearInterval(interval);
+                    }
+                }, 500);
+            }
+        }
+
+        animateStage(questionId);
+    </script>
+</body>
+</html>
