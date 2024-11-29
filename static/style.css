@@ -1,1 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
 
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color:  #cd4244;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Área do Caminho */
+.game-area {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 20px auto;
+    background-color: #e0f7fa;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid #007BFF;
+}
+
+/* GIF de progresso */
+#progress-gif {
+    width: 100%;
+    object-fit: cover;
+}
+video{
+    width: 500px;
+    height: 300px;
+}
+.amoor{
+    width: 300px;
+    height: 300px;
+    border: solid 2px  #cd4244;
+    border-radius: 10px;
+    
+}
+.gamer{
+    display: grid;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    background-color: #cd4244;
+    padding: 5px 40px;
+    color: white;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.surpresa{
+    width: 300px;
+    height: 300px;
+}
+.sp{
+    display: grid;
+    justify-content: center;
+}
